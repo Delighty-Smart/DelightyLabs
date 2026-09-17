@@ -193,7 +193,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             });
           }
 
-          setRawApps(fetchedApps);
+          // Sync demoUrl subdomains for core apps in Firestore
+          const updatedApps = fetchedApps.map(app => {
+            const initMatch = INITIAL_APPS.find(i => i.id === app.id);
+            if (initMatch && app.demoUrl !== initMatch.demoUrl) {
+              updateDoc(doc(db, 'published_apps', app.id), { demoUrl: initMatch.demoUrl }).catch(() => {});
+              return { ...app, demoUrl: initMatch.demoUrl };
+            }
+            return app;
+          });
+
+          setRawApps(updatedApps);
           setIsFirebaseConnected(true);
         } else {
           // Auto-seed Firestore with default apps if empty

@@ -36,7 +36,7 @@ export const INITIAL_APPS: BetaApp[] = [
     rating: 0,
     reviewsCount: 0,
     demoType: 'interactive-simulator',
-    demoUrl: 'https://www.scribera.space',
+    demoUrl: 'https://scribera.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
         'Explore today devotional reflection',
@@ -82,7 +82,7 @@ export const INITIAL_APPS: BetaApp[] = [
     rating: 0,
     reviewsCount: 0,
     demoType: 'interactive-simulator',
-    demoUrl: 'https://refreshstudio-theta.vercel.app/',
+    demoUrl: 'https://refresh.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
         'Test proximity & alignment layout rules',
@@ -128,7 +128,7 @@ export const INITIAL_APPS: BetaApp[] = [
     rating: 0,
     reviewsCount: 0,
     demoType: 'interactive-simulator',
-    demoUrl: 'https://refloww-xi.vercel.app/',
+    demoUrl: 'https://refloww.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
         'Generate custom client invoice template',
@@ -174,7 +174,7 @@ export const INITIAL_APPS: BetaApp[] = [
     rating: 0,
     reviewsCount: 0,
     demoType: 'interactive-simulator',
-    demoUrl: 'https://expendx-tau.vercel.app/',
+    demoUrl: 'https://expendx.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
         'Analyze monthly category expense breakdown',

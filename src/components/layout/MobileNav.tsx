@@ -34,7 +34,6 @@ export const MobileNav: React.FC = () => {
 
   const navItems = [
     { id: 'gallery', label: 'Directory', icon: Compass },
-    { id: 'admin', label: 'Admin', icon: SlidersHorizontal },
     { id: 'bookmarked', label: 'Saved', icon: Bookmark },
     { id: 'history', label: 'Recently Opened', icon: Clock },
   ];

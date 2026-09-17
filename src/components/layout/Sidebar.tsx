@@ -58,8 +58,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   const manageLinks = [
-    { id: 'admin', label: 'Admin Portal', icon: SlidersHorizontal, badge: 'Manager' },
-    { id: 'dashboard', label: 'Hub Stats', icon: BarChart3 },
     { id: 'docs', label: 'Hub Guidelines', icon: FileText, external: true },
   ];
 
