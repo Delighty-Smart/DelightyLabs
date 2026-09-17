@@ -184,6 +184,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           snapshot.forEach((docSnap: any) => {
             fetchedApps.push({ id: docSnap.id, ...docSnap.data() } as BetaApp);
           });
+
+          // Check if any core apps are missing in Firestore, and auto-seed them
+          const missingApps = INITIAL_APPS.filter(initApp => !fetchedApps.some(fa => fa.id === initApp.id));
+          if (missingApps.length > 0) {
+            missingApps.forEach((app) => {
+              setDoc(doc(db, 'published_apps', app.id), app).catch(() => {});
+            });
+          }
+
           setRawApps(fetchedApps);
           setIsFirebaseConnected(true);
         } else {

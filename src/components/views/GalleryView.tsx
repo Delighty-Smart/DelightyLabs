@@ -64,6 +64,27 @@ export const GalleryView: React.FC<GalleryViewProps> = ({ onSelectApp }) => {
     return apps.filter(app => app.section === 'landing-pages');
   }, [apps]);
 
+  // Compute dynamic category counts from live apps list
+  const categoriesWithCounts = useMemo(() => {
+    return CATEGORIES.map(cat => {
+      let count = apps.length;
+      if (cat.id === 'creative') {
+        count = apps.filter(a => a.category === 'creative').length;
+      } else if (cat.id === 'dev-tools') {
+        count = apps.filter(a => a.category === 'dev-tools').length;
+      } else if (cat.id === 'research') {
+        count = apps.filter(a => a.category === 'research').length;
+      } else if (cat.id === 'games') {
+        count = apps.filter(a => a.category === 'games').length;
+      } else if (cat.id === 'multimodal') {
+        count = apps.filter(a => a.category === 'multimodal').length;
+      } else if (cat.id === 'gemini') {
+        count = apps.filter(a => a.category === 'gemini').length;
+      }
+      return { ...cat, count };
+    });
+  }, [apps]);
+
   const isFiltering = searchQuery.trim().length > 0 || (selectedCategory !== 'featured' && selectedCategory !== 'all');
 
   return (
@@ -78,7 +99,7 @@ export const GalleryView: React.FC<GalleryViewProps> = ({ onSelectApp }) => {
 
       {/* Horizontally scrollable category filter pills */}
       <CategoryPills
-        categories={CATEGORIES}
+        categories={categoriesWithCounts}
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
       />
