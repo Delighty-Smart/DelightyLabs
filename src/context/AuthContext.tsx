@@ -109,7 +109,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       try {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          const hasRealApp = parsed.some((a: any) => a.id === 'scribera' || a.id === 'refresh-studio' || a.id === 'refloww' || a.id === 'expendx');
+          const hasRealApp = parsed.some((a: any) => a.id === 'scribera' || a.id === 'refresh-studio' || a.id === 'refloww' || a.id === 'expendx' || a.id === 'lucent');
           if (hasRealApp) {
             return parsed.map((app: BetaApp) => {
               const initialMatch = INITIAL_APPS.find(i => i.id === app.id);

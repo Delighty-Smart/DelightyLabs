@@ -259,7 +259,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <div className="space-y-2 text-xs">
                   <div className="p-2 rounded-lg bg-zinc-800/60 border border-zinc-700/40">
                     <p className="text-zinc-200 font-medium">Apps Directory Updated</p>
-                    <p className="text-[11px] text-zinc-400">Explore live apps: Scribera, Refresh Studio, Refloww, and Expendx.</p>
+                    <p className="text-[11px] text-zinc-400">Explore live apps: Scribera, Refresh Studio, Refloww, and Lucent.</p>
                   </div>
                   <div className="p-2 rounded-lg bg-zinc-800/60 border border-zinc-700/40">
                     <p className="text-zinc-200 font-medium">New app: Window Seat AI</p>

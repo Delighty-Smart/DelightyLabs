@@ -148,25 +148,25 @@ export const INITIAL_APPS: BetaApp[] = [
     ]
   },
   {
-    id: 'expendx',
-    title: 'Expendx (Lucent)',
+    id: 'lucent',
+    title: 'Lucent',
     tagline: 'Personal Finance & Expense Manager Dashboard',
-    description: 'Expendx (Lucent) is a modern personal finance manager providing intelligent expense tracking, category breakdown analytics, interactive budget charts, and Supabase cloud sync.',
+    description: 'Lucent is a modern personal finance manager providing intelligent expense tracking, category breakdown analytics, interactive budget charts, and cloud sync.',
     category: 'research',
     section: 'landing-pages',
     tags: ['Expense Tracker', 'Budgeting', 'Financial Charts', 'Personal Finance'],
     version: 'v1.5.0',
     status: 'new',
     modelOrEngine: 'Lucent Finance Engine',
-    thumbnail: '/apps/expendx.png',
-    bannerImage: '/apps/expendx.png',
+    thumbnail: '/apps/lucent.png',
+    bannerImage: '/apps/lucent.png',
     featuredScreenshots: [
-      '/apps/expendx.png'
+      '/apps/lucent.png'
     ],
     creator: {
-      name: 'Expendx Team',
-      avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=expendx',
-      handle: '@expendx_app',
+      name: 'Lucent Team',
+      avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=lucent',
+      handle: '@lucent_app',
       verified: true
     },
     testersCount: 0,
@@ -174,7 +174,7 @@ export const INITIAL_APPS: BetaApp[] = [
     rating: 0,
     reviewsCount: 0,
     demoType: 'interactive-simulator',
-    demoUrl: 'https://expendx.delightylabs.space',
+    demoUrl: 'https://lucent.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
         'Analyze monthly category expense breakdown',
@@ -183,8 +183,8 @@ export const INITIAL_APPS: BetaApp[] = [
       ],
       placeholder: 'Filter expenses by category or vendor...',
       responseTemplate: 'Monthly budget status: 68% utilized. Category breakdown updated in interactive financial chart.',
-      actionLabel: 'Launch Expendx App',
-      features: ['Smart transaction logging', 'Interactive financial spending charts', 'Supabase cloud sync & budget alerts']
+      actionLabel: 'Launch Lucent App',
+      features: ['Smart transaction logging', 'Interactive financial spending charts', 'Cloud sync & budget alerts']
     },
     releaseDate: 'Sept 2026',
     whatsNew: [
