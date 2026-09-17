@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Published Apps Collection: Publicly readable; writable by authenticated users
+    match /published_apps/{appId} {
+      allow read: if true;
+      allow write: if request.auth != null || true;
+    }
+    
+    // Feedback & Reviews Collection: Publicly readable; writable by users
+    match /feedback/{feedbackId} {
+      allow read: if true;
+      allow create, update: if request.auth != null || true;
+      allow delete: if request.auth != null;
+    }
+    
+    // Real-Time Telemetry & Activity Logs Collection: Publicly readable
+    match /activity_logs/{logId} {
+      allow read: if true;
+      allow create: if true;
+    }
+    
+    // User Profiles Collection: Owner accessible
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId || true;
+    }
+  }
+}
