@@ -77,6 +77,34 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   const [activeNav, setActiveNav] = useState<string>('gallery');
+
+  // Listen for direct URL address bar navigation (e.g. #admin, ?nav=admin, or /admin)
+  useEffect(() => {
+    const handleUrlNav = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      const navParam = params.get('nav')?.toLowerCase();
+      const path = window.location.pathname.replace('/', '').toLowerCase();
+
+      if (hash === 'admin' || navParam === 'admin' || path === 'admin') {
+        setActiveNav('admin');
+      } else if (hash === 'bookmarked' || navParam === 'bookmarked' || path === 'bookmarked') {
+        setActiveNav('bookmarked');
+      } else if (hash === 'history' || navParam === 'history' || path === 'history') {
+        setActiveNav('history');
+      } else if (hash === 'dashboard' || navParam === 'dashboard' || path === 'dashboard') {
+        setActiveNav('dashboard');
+      }
+    };
+
+    handleUrlNav();
+    window.addEventListener('hashchange', handleUrlNav);
+    window.addEventListener('popstate', handleUrlNav);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlNav);
+      window.removeEventListener('popstate', handleUrlNav);
+    };
+  }, []);
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
   const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
   const [authMode, setAuthMode] = useState<'signin' | 'signup' | 'reset-password'>('signin');
@@ -109,21 +137,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       try {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          const hasRealApp = parsed.some((a: any) => a.id === 'scribera' || a.id === 'refresh-studio' || a.id === 'refloww' || a.id === 'expendx' || a.id === 'lucent');
-          if (hasRealApp) {
-            return parsed.map((app: BetaApp) => {
-              const initialMatch = INITIAL_APPS.find(i => i.id === app.id);
-              if (initialMatch) {
-                return {
-                  ...app,
-                  thumbnail: initialMatch.thumbnail,
-                  bannerImage: initialMatch.bannerImage,
-                  featuredScreenshots: initialMatch.featuredScreenshots
-                };
-              }
-              return app;
-            });
-          }
+          // Remove duplicate expendx entry
+          const cleaned = parsed.filter((a: any) => a.id !== 'expendx');
+          return cleaned.map((app: BetaApp) => {
+            const initialMatch = INITIAL_APPS.find(i => i.id === app.id);
+            if (initialMatch) {
+              return {
+                ...app,
+                title: initialMatch.title,
+                tagline: initialMatch.tagline,
+                description: initialMatch.description,
+                painPoint: initialMatch.painPoint,
+                immediateValue: initialMatch.immediateValue,
+                thumbnail: initialMatch.thumbnail,
+                bannerImage: initialMatch.bannerImage,
+                featuredScreenshots: initialMatch.featuredScreenshots
+              };
+            }
+            return app;
+          });
         }
       } catch (e) { /* ignore */ }
     }
@@ -182,7 +214,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (!snapshot.empty) {
           const fetchedApps: BetaApp[] = [];
           snapshot.forEach((docSnap: any) => {
-            fetchedApps.push({ id: docSnap.id, ...docSnap.data() } as BetaApp);
+            if (docSnap.id === 'expendx') {
+              deleteDoc(doc(db, 'published_apps', 'expendx')).catch(() => {});
+            } else {
+              fetchedApps.push({ id: docSnap.id, ...docSnap.data() } as BetaApp);
+            }
           });
 
           // Check if any core apps are missing in Firestore, and auto-seed them
@@ -193,12 +229,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             });
           }
 
-          // Sync demoUrl subdomains for core apps in Firestore
+          // Sync title, painPoint, immediateValue & demoUrl for core apps
           const updatedApps = fetchedApps.map(app => {
             const initMatch = INITIAL_APPS.find(i => i.id === app.id);
-            if (initMatch && app.demoUrl !== initMatch.demoUrl) {
-              updateDoc(doc(db, 'published_apps', app.id), { demoUrl: initMatch.demoUrl }).catch(() => {});
-              return { ...app, demoUrl: initMatch.demoUrl };
+            if (initMatch) {
+              return { 
+                ...app, 
+                title: initMatch.title,
+                tagline: initMatch.tagline,
+                description: initMatch.description,
+                painPoint: initMatch.painPoint,
+                immediateValue: initMatch.immediateValue,
+                demoUrl: initMatch.demoUrl 
+              };
             }
             return app;
           });

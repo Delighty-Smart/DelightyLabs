@@ -94,17 +94,17 @@ export const CategoryPills: React.FC<CategoryPillsProps> = ({
             <button
               key={cat.id}
               onClick={() => onSelectCategory(cat.id)}
-              className={`flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-xs md:text-sm font-medium transition-all whitespace-nowrap select-none flex-shrink-0 ${
+              className={`flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold transition-all whitespace-nowrap select-none flex-shrink-0 ${
                 isSelected
-                  ? 'bg-zinc-800 text-white border border-zinc-600/80 shadow-sm font-semibold'
+                  ? 'bg-[#ccff00] text-[#0b0d12] border border-[#ccff00] shadow-neon-glow font-extrabold scale-105'
                   : 'bg-[#151820]/90 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 border border-zinc-800/80'
               }`}
             >
-              <Icon className={`w-4 h-4 ${isSelected ? 'text-blue-400' : 'text-zinc-400'}`} />
+              <Icon className={`w-4 h-4 ${isSelected ? 'text-[#0b0d12]' : 'text-zinc-400'}`} />
               <span>{cat.label}</span>
               {cat.count !== undefined && (
-                <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${
-                  isSelected ? 'bg-zinc-700 text-zinc-200' : 'bg-zinc-800/60 text-zinc-300'
+                <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+                  isSelected ? 'bg-[#0b0d12] text-[#ccff00]' : 'bg-zinc-800/80 text-zinc-300'
                 }`}>
                   {cat.count}
                 </span>

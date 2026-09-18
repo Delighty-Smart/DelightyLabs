@@ -96,11 +96,11 @@ runBenchmark();`;
           <div className="flex items-center gap-2">
             <h1 className="text-2xl font-bold text-white tracking-tight">Playground</h1>
             <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
-              Interactive Workbench
+              Workbench
             </span>
           </div>
           <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-            Test and benchmark experimental AI models with customizable prompts, parameters, and instant code export.
+            Test AI models with custom prompts and export code.
           </p>
         </div>
 
@@ -126,7 +126,7 @@ runBenchmark();`;
             ) : (
               <>
                 <Play className="w-3.5 h-3.5 fill-current" />
-                <span>Run prompt</span>
+                <span>Run</span>
               </>
             )}
           </button>
@@ -173,7 +173,7 @@ runBenchmark();`;
           <div className="p-4 rounded-2xl bg-[#14171f] border border-zinc-800 space-y-2">
             <div className="flex items-center justify-between">
               <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider">
-                User Prompt Input
+                Prompt
               </label>
               <button
                 onClick={() => setPrompt('')}
@@ -187,7 +187,7 @@ runBenchmark();`;
               rows={5}
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Enter your prompt or scenario..."
+              placeholder="Enter prompt..."
               className="w-full p-3.5 text-sm rounded-xl bg-[#0c0e12] border border-zinc-800 text-zinc-100 focus:outline-none focus:border-blue-500 font-mono resize-none leading-relaxed"
             />
           </div>
@@ -211,7 +211,7 @@ runBenchmark();`;
             {isLoading ? (
               <div className="py-12 flex flex-col items-center justify-center gap-3 text-zinc-400 text-xs">
                 <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
-                <span>Simulating neural inference on {model}...</span>
+                <span>Running model inference...</span>
               </div>
             ) : response ? (
               <div className="text-xs sm:text-sm text-zinc-200 whitespace-pre-wrap font-sans leading-relaxed">
@@ -219,7 +219,7 @@ runBenchmark();`;
               </div>
             ) : (
               <div className="py-12 text-center text-xs text-zinc-400 italic">
-                Click "Run prompt" to execute model inference in the playground.
+                Click "Run" to execute model inference.
               </div>
             )}
           </div>
@@ -230,7 +230,7 @@ runBenchmark();`;
           <div className="p-5 rounded-2xl bg-[#14171f] border border-zinc-800 space-y-5">
             <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
               <Sliders className="w-4 h-4 text-blue-400" />
-              Configurations
+              Settings
             </h3>
 
             {/* Model Selector */}
@@ -238,9 +238,9 @@ runBenchmark();`;
               <label className="block text-xs font-medium text-zinc-400">Model</label>
               <div className="space-y-1.5">
                 {[
-                  { id: 'gemini-3.8-flash', label: 'Gemini 3.8 Flash', desc: 'Fast, multimodal, low latency' },
-                  { id: 'gemini-3-pro', label: 'Gemini 3 Pro', desc: 'Complex reasoning & code synthesis' },
-                  { id: 'nano-banana-2', label: 'Nano Banana 2', desc: 'High-res image & vision generation' },
+                  { id: 'gemini-3.8-flash', label: 'Gemini 3.8 Flash', desc: 'Fast, low latency multimodal' },
+                  { id: 'gemini-3-pro', label: 'Gemini 3 Pro', desc: 'Complex reasoning & code' },
+                  { id: 'nano-banana-2', label: 'Nano Banana 2', desc: 'High-res vision generation' },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -274,7 +274,7 @@ runBenchmark();`;
                 onChange={(e) => setTemperature(parseFloat(e.target.value))}
                 className="w-full accent-blue-500 bg-zinc-800 h-1.5 rounded-lg cursor-pointer"
               />
-              <p className="text-[10px] text-zinc-400">Controls randomness: lower values are deterministic.</p>
+              <p className="text-[10px] text-zinc-400">Lower values are more deterministic.</p>
             </div>
 
             {/* Top-P Slider */}

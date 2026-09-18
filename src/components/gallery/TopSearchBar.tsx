@@ -42,7 +42,7 @@ export const TopSearchBar: React.FC<TopSearchBarProps> = ({
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search across hundreds of apps created for DelightyLabs beta testing..."
+          placeholder="Search apps, creators, or tags..."
           className="w-full pl-11 pr-24 py-3 rounded-2xl bg-[#14171f] border border-zinc-800 text-zinc-100 placeholder-zinc-400 text-sm focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-blue-500/40 transition-all shadow-inner"
         />
 
@@ -87,7 +87,7 @@ export const TopSearchBar: React.FC<TopSearchBarProps> = ({
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            Highest Rated
+            Top Rated
           </button>
           <button
             onClick={() => setSortBy('newest')}

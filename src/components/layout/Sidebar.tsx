@@ -48,17 +48,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
   const directoryLinks = [
-    { id: 'gallery', label: 'App Directory', icon: Compass, badge: 'Hub' },
-    { id: 'history', label: 'Recently Opened', icon: Clock },
+    { id: 'gallery', label: 'Explore', icon: Compass },
+    { id: 'history', label: 'Recent', icon: Clock },
   ];
 
   const workspaceLinks = [
-    { id: 'bookmarked', label: 'Saved Apps', icon: Bookmark, count: user?.bookmarkedAppIds.length || 0 },
-    { id: 'my-feedback', label: 'Reviews & Feedback', icon: MessageSquareCode, count: user?.testedAppIds.length || 0 },
+    { id: 'bookmarked', label: 'Saved', icon: Bookmark, count: user?.bookmarkedAppIds.length || 0 },
+    { id: 'my-feedback', label: 'Feedback', icon: MessageSquareCode, count: user?.testedAppIds.length || 0 },
   ];
 
   const manageLinks = [
-    { id: 'docs', label: 'Hub Guidelines', icon: FileText, external: true },
+    { id: 'docs', label: 'Guidelines', icon: FileText, external: true },
   ];
 
   return (
@@ -86,7 +86,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   HUB
                 </span>
               </div>
-              <span className="text-[10px] text-zinc-400">Apps Directory & Portal</span>
+              <span className="text-[10px] text-zinc-400">Apps Directory</span>
             </div>
           </div>
         ) : (
@@ -143,11 +143,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   {!collapsed && (
                     <div className="flex-1 flex items-center justify-between">
                       <span>{item.label}</span>
-                      {item.badge && (
-                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                          {item.badge}
-                        </span>
-                      )}
                     </div>
                   )}
                   {isActive && collapsed && (
@@ -163,7 +158,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div>
           {!collapsed && (
             <div className="px-3 mb-2 text-[11px] font-semibold tracking-wider text-zinc-300 uppercase">
-              My Workspace
+              Workspace
             </div>
           )}
           <nav className="space-y-1">
@@ -253,17 +248,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {notificationsOpen && (
               <div className="absolute bottom-full left-0 mb-2 w-64 p-3 bg-[#171a22] border border-[#2c3240] rounded-xl shadow-2xl z-50 animate-in fade-in slide-in-from-bottom-2">
                 <div className="text-xs font-semibold text-white mb-2 flex items-center justify-between">
-                  <span>Lab Notifications</span>
+                  <span>Notifications</span>
                   <span className="text-[10px] text-blue-400">2 new</span>
                 </div>
                 <div className="space-y-2 text-xs">
                   <div className="p-2 rounded-lg bg-zinc-800/60 border border-zinc-700/40">
-                    <p className="text-zinc-200 font-medium">Apps Directory Updated</p>
-                    <p className="text-[11px] text-zinc-400">Explore live apps: Scribera, Refresh Studio, Refloww, and Lucent.</p>
+                    <p className="text-zinc-200 font-medium">Directory Updated</p>
+                    <p className="text-[11px] text-zinc-400">New live apps added to catalog.</p>
                   </div>
                   <div className="p-2 rounded-lg bg-zinc-800/60 border border-zinc-700/40">
-                    <p className="text-zinc-200 font-medium">New app: Window Seat AI</p>
-                    <p className="text-[11px] text-zinc-400">Nano Banana 2 model beta testing is now open.</p>
+                    <p className="text-zinc-200 font-medium">Window Seat AI</p>
+                    <p className="text-[11px] text-zinc-400">Beta testing now open.</p>
                   </div>
                 </div>
               </div>
@@ -292,7 +287,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={onOpenApiKeys}
             className="p-1.5 rounded-lg hover:text-zinc-200 hover:bg-zinc-800/80 transition-colors"
-            title="API Keys & Tester Tokens"
+            title="API Keys"
           >
             <Key className="w-4 h-4" />
           </button>
@@ -352,7 +347,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }`}
           >
             <ShieldCheck className="w-4 h-4" />
-            {!collapsed && <span>Sign In / Join Beta</span>}
+            {!collapsed && <span>Sign In</span>}
           </button>
         )}
       </div>

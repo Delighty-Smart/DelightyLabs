@@ -4,21 +4,37 @@
 
 @layer base {
   :root {
-    --color-bg: #0c0e12;
-    --color-surface: #13161c;
+    --color-bg: #0b0d12;
+    --color-surface: #12151c;
+    --color-neon-lime: #ccff00;
+    --color-neon-lime-dark: #88aa00;
     --color-border: rgba(255, 255, 255, 0.08);
   }
 
   body {
-    background-color: #0c0e12;
+    background-color: #0b0d12;
     color: #f1f3f7;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* iOS safe area support */
+  main {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Prevent font size inflation on mobile */
+  * {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   /* Custom dark scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
-    height: 6px;
+    height: 4px;
   }
 
   ::-webkit-scrollbar-track {
@@ -31,48 +47,217 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #3b4255;
+    background: #ccff00;
   }
 }
 
-/* Glassmorphic cards */
+/* Electric Lime Accent Colors & Glows */
+.bg-neon-lime {
+  background-color: #ccff00;
+}
+
+.text-neon-lime {
+  color: #ccff00;
+}
+
+.border-neon-lime {
+  border-color: #ccff00;
+}
+
+.shadow-neon-glow {
+  box-shadow: 0 0 25px rgba(204, 255, 0, 0.35);
+}
+
+.shadow-neon-glow-lg {
+  box-shadow: 0 0 45px rgba(204, 255, 0, 0.45);
+}
+
+/* 3D Stacked Pill Card (Signature Reference Style) */
+.pill-3d-card {
+  background: #ccff00;
+  color: #0b0d12;
+  border-radius: 2rem;
+  box-shadow: 
+    0 8px 0 #84a600,
+    0 16px 0 #4a5e00,
+    0 24px 35px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-3d-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 0 #84a600,
+    0 20px 0 #4a5e00,
+    0 30px 45px rgba(204, 255, 0, 0.3);
+}
+
+.pill-3d-card-cyan {
+  background: #00f2fe;
+  color: #0b0d12;
+  border-radius: 2rem;
+  box-shadow: 
+    0 8px 0 #0099a6,
+    0 16px 0 #00555e,
+    0 24px 35px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-3d-card-cyan:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 0 #0099a6,
+    0 20px 0 #00555e,
+    0 30px 45px rgba(0, 242, 254, 0.3);
+}
+
+/* Glassmorphic panels */
 .glass-panel {
-  background: rgba(19, 22, 28, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(18, 21, 28, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-card {
-  background: rgba(24, 27, 34, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(22, 25, 34, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(30, 34, 43, 0.85);
-  border-color: rgba(255, 255, 255, 0.16);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.6);
+  background: rgba(28, 32, 44, 0.88);
+  border-color: rgba(204, 255, 0, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7);
 }
 
 /* Subtle glowing text and borders */
+.text-glow-lime {
+  text-shadow: 0 0 25px rgba(204, 255, 0, 0.5);
+}
+
 .text-glow-blue {
   text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
-.border-glow-subtle {
-  border-color: rgba(96, 165, 250, 0.3);
-  box-shadow: 0 0 15px -3px rgba(59, 130, 246, 0.15);
+/* Keyframe Floating Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes sparkleSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkleSpin 6s linear infinite;
 }
 
 /* Hide scrollbars for pill horizontal lists */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Blueprint Grid Pattern */
+.bg-blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@media (min-width: 640px) {
+  .bg-blueprint-grid {
+    background-size: 36px 36px;
+  }
+}
+
+/* Giant Outline Text Stroke */
+.text-outline-white {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.85);
+  color: transparent;
+}
+
+.text-outline-lime {
+  -webkit-text-stroke: 2px #ccff00;
+  color: transparent;
+}
+
+/* Rotating circular text animation */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+}
+
+/* 3D Sphere Depth Blur */
+.sphere-3d-lime {
+  background: radial-gradient(circle at 30% 30%, #e6ff66, #ccff00 50%, #668000);
+  box-shadow: inset -8px -8px 20px rgba(0,0,0,0.5), 0 10px 25px rgba(204, 255, 0, 0.35);
+}
+
+.sphere-3d-blue {
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb 50%, #1e3a8a);
+  box-shadow: inset -8px -8px 20px rgba(0,0,0,0.5), 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* Touch action for carousel smoothness */
+.carousel-track {
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* xs breakpoint utilities (manual, < 480px) */
+@media (max-width: 479px) {
+  .xs\:flex-row {
+    flex-direction: row;
+  }
+  .xs\:items-center {
+    align-items: center;
+  }
+  .xs\:w-auto {
+    width: auto;
+  }
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 30s linear infinite reverse;
 }

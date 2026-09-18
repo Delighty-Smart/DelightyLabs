@@ -102,7 +102,7 @@ export const AuthModal: React.FC = () => {
           </div>
           <div>
             <h3 className="font-bold text-white text-lg">DelightyLabs</h3>
-            <p className="text-xs text-zinc-400">Beta Testing & Evaluation Hub</p>
+            <p className="text-xs text-zinc-400">App Hub</p>
           </div>
         </div>
 
@@ -136,13 +136,13 @@ export const AuthModal: React.FC = () => {
         <div className="mb-5">
           <h2 className="text-xl font-bold text-white">
             {authMode === 'signin' && 'Sign in to DelightyLabs'}
-            {authMode === 'signup' && 'Join the Beta Testing Lab'}
-            {authMode === 'reset-password' && 'Reset your password'}
+            {authMode === 'signup' && 'Create your account'}
+            {authMode === 'reset-password' && 'Reset password'}
           </h2>
           <p className="text-xs text-zinc-400 mt-1">
-            {authMode === 'signin' && 'Access published web apps, test sandboxes, and submit feedback in real-time.'}
-            {authMode === 'signup' && 'Create your account to receive $40 in tester credits and publish apps.'}
-            {authMode === 'reset-password' && 'Enter your registered email to receive a password reset link.'}
+            {authMode === 'signin' && 'Access published web apps and saved tools.'}
+            {authMode === 'signup' && 'Create an account to save apps and post reviews.'}
+            {authMode === 'reset-password' && 'Enter your email for a password reset link.'}
           </p>
         </div>
 

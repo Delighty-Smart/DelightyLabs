@@ -40,7 +40,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
         trackAppLaunch(app.id);
         onOpen(app);
       }}
-      className="group flex flex-col rounded-2xl bg-[#14171f] border border-zinc-800/90 hover:border-zinc-700/90 overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl relative select-none"
+      className="group flex flex-col rounded-3xl bg-[#12151d] border border-zinc-800/90 hover:border-[#ccff00]/60 overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-neon-glow relative select-none"
     >
       {/* Thumbnail Aspect Box */}
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-900">
@@ -52,12 +52,12 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
         />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#14171f] via-transparent to-black/30 opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#12151d] via-transparent to-black/30 opacity-80" />
 
         {/* Top Badges */}
         <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between z-10">
           <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-zinc-200 border border-white/10">
+            <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-[#ccff00] border border-[#ccff00]/30">
               {app.version}
             </span>
             {isTested && (
@@ -76,7 +76,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
             }}
             className={`p-1.5 rounded-full backdrop-blur-md transition-all ${
               bookmarked
-                ? 'bg-blue-600 text-white shadow-glow-sm'
+                ? 'bg-[#ccff00] text-[#0b0d12] shadow-neon-glow'
                 : 'bg-black/50 text-zinc-300 hover:text-white hover:bg-black/80'
             }`}
             title={bookmarked ? 'Remove from saved' : 'Save app'}
@@ -86,7 +86,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
         </div>
 
         {/* Hover quick action overlay buttons & direct rating flow */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-200 bg-black/65 backdrop-blur-[3px] z-10 p-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-200 bg-black/70 backdrop-blur-[3px] z-10 p-4">
           <div className="flex items-center gap-2">
             <a
               href={app.demoUrl}
@@ -96,7 +96,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
                 e.stopPropagation();
                 trackAppLaunch(app.id);
               }}
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-xs shadow-xl flex items-center gap-1.5 transition-all hover:scale-105"
+              className="px-4 py-2 rounded-xl bg-[#ccff00] hover:bg-[#d8ff1a] text-[#0b0d12] font-extrabold text-xs shadow-neon-glow flex items-center gap-1.5 transition-all hover:scale-105"
             >
               <span>Launch App</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -108,7 +108,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
                 trackAppLaunch(app.id);
                 onOpen(app);
               }}
-              className="px-3.5 py-2 rounded-xl bg-white/90 hover:bg-white text-zinc-900 font-semibold text-xs shadow-xl flex items-center gap-1.5 transition-all hover:scale-105"
+              className="px-4 py-2 rounded-xl bg-white/90 hover:bg-white text-zinc-900 font-bold text-xs shadow-xl flex items-center gap-1.5 transition-all hover:scale-105"
             >
               <span>Details</span>
             </button>
@@ -119,7 +119,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
             onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-700/80 shadow-2xl text-xs backdrop-blur-md"
           >
-            <span className="text-[10px] font-semibold text-zinc-400 mr-0.5">Quick Rate:</span>
+            <span className="text-[10px] font-semibold text-zinc-400 mr-0.5">Rate:</span>
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
@@ -149,7 +149,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onOpen }) => {
       <div className="flex-1 p-4 flex flex-col justify-between space-y-3">
         <div>
           {/* Title */}
-          <h3 className="text-base font-semibold text-zinc-100 group-hover:text-blue-400 transition-colors line-clamp-1">
+          <h3 className="text-base font-bold text-zinc-100 group-hover:text-[#ccff00] transition-colors line-clamp-1">
             {app.title}
           </h3>
 

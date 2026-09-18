@@ -10,13 +10,71 @@ export const CATEGORIES: CategoryItem[] = [
 
 export const INITIAL_APPS: BetaApp[] = [
   {
+    id: 'lucent',
+    title: 'Lucent (Expendx)',
+    tagline: 'Measure Expenses in Hours of Your Life',
+    description: 'Track spending, analyze category breakdowns, and convert prices into the actual work hours of your life it costs to buy them.',
+    painPoint: 'Tired of manual spreadsheets and confusing budget categories? Traditional expense trackers only show currency numbers, making it hard to see what your spending actually costs you.',
+    immediateValue: [
+      'Calculate your real hourly wage after work expenses and taxes',
+      'Log any purchase to see its cost in actual working hours',
+      'Track category spending against your financial targets'
+    ],
+    category: 'research',
+    section: 'landing-pages',
+    tags: ['Expense Tracker', 'Budgeting', 'Financial Charts'],
+    version: 'v1.5.0',
+    status: 'active',
+    modelOrEngine: 'Lucent Finance Engine',
+    thumbnail: '/apps/lucent.png',
+    bannerImage: '/apps/lucent.png',
+    featuredScreenshots: [
+      '/apps/lucent.png'
+    ],
+    creator: {
+      name: 'Lucent Team',
+      avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=lucent',
+      handle: '@lucent_app',
+      verified: true
+    },
+    testersCount: 0,
+    upvotesCount: 0,
+    rating: 0,
+    reviewsCount: 0,
+    demoType: 'interactive-simulator',
+    demoUrl: 'https://lucent.delightylabs.space',
+    interactiveConfig: {
+      samplePrompts: [
+        'Calculate work-hours for $1,200 purchase at $25/hr wage',
+        'Analyze monthly category expense breakdown',
+        'Log quick expense transaction in work-hours'
+      ],
+      placeholder: 'Filter expenses by category or vendor...',
+      responseTemplate: 'Monthly budget: 68% utilized. Category breakdown updated in spending chart.',
+      actionLabel: 'Launch Lucent (Expendx)',
+      features: ['Life-hour expense calculator', 'Interactive spending charts', 'Real-time cloud sync']
+    },
+    releaseDate: 'Sept 2026',
+    whatsNew: [
+      'Capacitor PWA mobile support',
+      'Real-time cloud data sync',
+      'Life-hour cost calculations'
+    ]
+  },
+  {
     id: 'scribera',
     title: 'Scribera',
-    tagline: 'Christian Writing & Devotional Sanctuary Platform',
-    description: 'A dedicated sanctuary for Christian writers and readers. Share daily devotionals, faith-inspired stories, scripture reflections, and grow in faith with a Christ-centered community.',
+    tagline: 'Devotional Writing & Community Platform',
+    description: 'A sanctuary for Christian writers and readers to share daily devotionals, scripture reflections, and faith stories in a Christ-centered community.',
+    painPoint: 'Social platforms are noisy and full of distractions when you want a quiet, focused space for faith writing, daily devotionals, and scripture study.',
+    immediateValue: [
+      'Read daily scripture reflections in a clutter-free sanctuary',
+      'Write and organize your personal devotional notes & journal',
+      'Share reflections with a supportive Christ-centered community'
+    ],
     category: 'creative',
     section: 'landing-pages',
-    tags: ['Devotional', 'Publishing', 'Community', 'Writing', 'Faith'],
+    tags: ['Devotional', 'Publishing', 'Community', 'Writing'],
     version: 'v1.2.0',
     status: 'trending',
     modelOrEngine: 'Scribera Web Engine',
@@ -39,30 +97,36 @@ export const INITIAL_APPS: BetaApp[] = [
     demoUrl: 'https://scribera.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
-        'Explore today devotional reflection',
-        'Read scripture study notes and community stories',
-        'Share faith-inspired story in sanctuary stream'
+        'Read daily devotional reflection',
+        'Explore scripture study notes',
+        'Publish faith story'
       ],
       placeholder: 'Search devotionals, authors, scripture notes...',
-      responseTemplate: 'Devotional reflection loaded: "Walking in Faith and Grace". Scripture study and community publishing active.',
-      actionLabel: 'Launch Scribera Web App',
-      features: ['Daily devotional reader feed', 'Christ-centered community publishing', 'Scripture editor & bookmark sanctuary']
+      responseTemplate: 'Devotional loaded: "Walking in Faith and Grace". Sanctuary stream active.',
+      actionLabel: 'Launch Scribera',
+      features: ['Daily devotional feed', 'Community publishing', 'Scripture editor & sanctuary']
     },
     releaseDate: 'Sept 2026',
     whatsNew: [
-      'Launched official Scribera PWA web application',
-      'Scripture study and devotional notes integration',
-      'Enhanced typography and Christ-centered community feed'
+      'Official Scribera PWA release',
+      'Scripture study and devotional notes',
+      'Enhanced typography and community feed'
     ]
   },
   {
     id: 'refresh-studio',
     title: 'Refresh Studio',
-    tagline: 'Interactive Visual Design Rules Trainer',
-    description: 'Master the fundamental rules of visual design through interactive practice. Learn alignment, proximity, balance, visual contrast, layout hierarchy, and design principles with Refresh Studio.',
+    tagline: 'Visual Design Rules & UI Trainer',
+    description: 'Master UI layout hierarchy, alignment, proximity, contrast, and visual balance through hands-on interactive exercises.',
+    painPoint: 'Reading UI design guidelines is dry and hard to apply. Without interactive practice, it is difficult to spot visual alignment and contrast errors in your designs.',
+    immediateValue: [
+      'Practice hands-on UI alignment and proximity spacing drills',
+      'Test color contrast ratios for Web Accessibility (WCAG)',
+      'Score layout hierarchy and balance in real-time'
+    ],
     category: 'creative',
     section: 'nano-banana',
-    tags: ['Design System', 'Interactive Trainer', 'UI/UX', 'Layout Hierarchy'],
+    tags: ['Design System', 'UI Trainer', 'Layout Hierarchy'],
     version: 'v1.0.4',
     status: 'active',
     modelOrEngine: 'Refresh Design Engine',
@@ -85,30 +149,36 @@ export const INITIAL_APPS: BetaApp[] = [
     demoUrl: 'https://refresh.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
-        'Test proximity & alignment layout rules',
-        'Practice visual contrast & accessibility score',
-        'Train layout balance & typography hierarchy'
+        'Test layout alignment & proximity rules',
+        'Practice color contrast accessibility',
+        'Train visual hierarchy & spacing'
       ],
-      placeholder: 'Select design rule training exercise...',
-      responseTemplate: 'Design trainer status: Alignment 98%, Proximity spacing verified. Visual balance score optimal.',
-      actionLabel: 'Launch Refresh Studio App',
-      features: ['Interactive UI alignment exercises', 'Color contrast & accessibility checker', 'Visual design rules training modules']
+      placeholder: 'Select design exercise...',
+      responseTemplate: 'Trainer status: Alignment 98%, Proximity verified. Visual balance score optimal.',
+      actionLabel: 'Launch Refresh Studio',
+      features: ['Interactive UI alignment drills', 'Contrast & accessibility check', 'Visual design scoring']
     },
     releaseDate: 'Sept 2026',
     whatsNew: [
-      'Added 10 new layout contrast drills',
-      'Real-time visual design rule scoring',
-      'Responsive design exercise feedback'
+      '10 new layout contrast drills',
+      'Real-time design rule scoring',
+      'Responsive design feedback'
     ]
   },
   {
     id: 'refloww',
     title: 'Refloww',
-    tagline: 'Financial Documentation & Invoice Manager',
-    description: 'Create professional invoices, receipts, delivery notes, and custom financial documentation with custom templates, multi-currency support, and instant PDF exports.',
+    tagline: 'Financial Invoicing & Document Manager',
+    description: 'Generate professional invoices, receipts, and delivery notes with custom templates, multi-currency support, and PDF export.',
+    painPoint: 'Creating client invoices and delivery receipts manually in spreadsheets is slow, error-prone, and looks unpolished.',
+    immediateValue: [
+      'Generate branded client invoices and receipts in seconds',
+      'Convert currencies automatically with instant tax calculations',
+      'Export ready-to-send PDF financial documents'
+    ],
     category: 'dev-tools',
     section: 'gemini-flash',
-    tags: ['Invoicing', 'Finance', 'Documentation', 'PDF Export'],
+    tags: ['Invoicing', 'Finance', 'PDF Export'],
     version: 'v2.1.0',
     status: 'active',
     modelOrEngine: 'Refloww Finance Engine',
@@ -131,66 +201,20 @@ export const INITIAL_APPS: BetaApp[] = [
     demoUrl: 'https://refloww.delightylabs.space',
     interactiveConfig: {
       samplePrompts: [
-        'Generate custom client invoice template',
-        'Create itemized delivery note record',
-        'Export financial receipt as PDF'
+        'Generate client invoice template',
+        'Create itemized delivery note',
+        'Export receipt as PDF'
       ],
-      placeholder: 'Search invoice numbers, receipts, clients...',
-      responseTemplate: 'Invoice #INV-2026-089 generated successfully. Multi-currency calculation complete.',
-      actionLabel: 'Launch Refloww App',
-      features: ['Custom invoice & receipt templates', 'Delivery notes documentation manager', 'Multi-currency auto conversion']
+      placeholder: 'Search invoices, receipts, clients...',
+      responseTemplate: 'Invoice #INV-2026-089 generated successfully. Currency calculation complete.',
+      actionLabel: 'Launch Refloww',
+      features: ['Invoice & receipt templates', 'Delivery notes manager', 'Multi-currency conversion']
     },
     releaseDate: 'Aug 2026',
     whatsNew: [
-      'Custom brand color picker for invoices',
-      'Automatic tax rate calculation presets',
-      'Export directly to PDF and quick email share'
-    ]
-  },
-  {
-    id: 'lucent',
-    title: 'Lucent',
-    tagline: 'Personal Finance & Expense Manager Dashboard',
-    description: 'Lucent is a modern personal finance manager providing intelligent expense tracking, category breakdown analytics, interactive budget charts, and cloud sync.',
-    category: 'research',
-    section: 'landing-pages',
-    tags: ['Expense Tracker', 'Budgeting', 'Financial Charts', 'Personal Finance'],
-    version: 'v1.5.0',
-    status: 'new',
-    modelOrEngine: 'Lucent Finance Engine',
-    thumbnail: '/apps/lucent.png',
-    bannerImage: '/apps/lucent.png',
-    featuredScreenshots: [
-      '/apps/lucent.png'
-    ],
-    creator: {
-      name: 'Lucent Team',
-      avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=lucent',
-      handle: '@lucent_app',
-      verified: true
-    },
-    testersCount: 0,
-    upvotesCount: 0,
-    rating: 0,
-    reviewsCount: 0,
-    demoType: 'interactive-simulator',
-    demoUrl: 'https://lucent.delightylabs.space',
-    interactiveConfig: {
-      samplePrompts: [
-        'Analyze monthly category expense breakdown',
-        'Check financial savings goal progress',
-        'Log quick expense transaction'
-      ],
-      placeholder: 'Filter expenses by category or vendor...',
-      responseTemplate: 'Monthly budget status: 68% utilized. Category breakdown updated in interactive financial chart.',
-      actionLabel: 'Launch Lucent App',
-      features: ['Smart transaction logging', 'Interactive financial spending charts', 'Cloud sync & budget alerts']
-    },
-    releaseDate: 'Sept 2026',
-    whatsNew: [
-      'Capacitor PWA mobile support',
-      'Supabase real-time cloud data sync',
-      'Custom expense category icons and charts'
+      'Custom brand color picker',
+      'Tax rate presets',
+      'Direct PDF export and sharing'
     ]
   }
 ];

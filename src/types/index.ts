@@ -28,6 +28,8 @@ export interface BetaApp {
   title: string;
   tagline: string;
   description: string;
+  painPoint: string;
+  immediateValue: string[];
   category: AppCategory;
   section: 'gemini-flash' | 'nano-banana' | 'landing-pages' | 'community';
   tags: string[];

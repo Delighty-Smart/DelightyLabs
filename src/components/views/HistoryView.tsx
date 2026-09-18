@@ -21,13 +21,13 @@ export const HistoryView: React.FC<HistoryViewProps> = ({ onSelectApp }) => {
     <div className="w-full max-w-7xl mx-auto space-y-8 pb-16">
       <div className="pb-4 border-b border-zinc-800">
         <div className="flex items-center gap-2">
-          <h1 className="text-2xl font-bold text-white tracking-tight">Recently Opened Apps</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight">Recently Opened</h1>
           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
             {testedApps.length} Opened
           </span>
         </div>
         <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-          Review applications you have recently launched and accessed in Delighty Hub.
+          Applications you recently launched.
         </p>
       </div>
 
@@ -35,17 +35,17 @@ export const HistoryView: React.FC<HistoryViewProps> = ({ onSelectApp }) => {
       <section className="space-y-4">
         <h2 className="text-sm font-semibold text-zinc-300 uppercase tracking-wider flex items-center gap-2">
           <Clock className="w-4 h-4 text-blue-400" />
-          <span>Recently Accessed Applications</span>
+          <span>Recent Apps</span>
         </h2>
 
         {testedApps.length === 0 ? (
           <div className="p-8 text-center rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2">
-            <p className="text-xs text-zinc-400">You haven't run tests on any beta applications yet.</p>
+            <p className="text-xs text-zinc-400">You haven't opened any applications yet.</p>
             <button
               onClick={() => setActiveNav('gallery')}
               className="px-4 py-2 rounded-xl bg-blue-600 text-xs font-semibold text-white"
             >
-              Start Testing Now
+              Browse Apps
             </button>
           </div>
         ) : (
@@ -89,7 +89,7 @@ export const HistoryView: React.FC<HistoryViewProps> = ({ onSelectApp }) => {
       <section className="space-y-4 pt-4">
         <h2 className="text-sm font-semibold text-zinc-300 uppercase tracking-wider flex items-center gap-2">
           <MessageSquare className="w-4 h-4 text-emerald-400" />
-          <span>My Bug Reports & Feedback ({userFeedbacks.length})</span>
+          <span>My Feedback ({userFeedbacks.length})</span>
         </h2>
 
         {userFeedbacks.length === 0 ? (

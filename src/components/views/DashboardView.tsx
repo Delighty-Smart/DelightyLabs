@@ -49,19 +49,19 @@ export const DashboardView: React.FC = () => {
       <div className="pb-4 border-b border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-white tracking-tight">Hub Metrics & Activity Dashboard</h1>
+            <h1 className="text-2xl font-bold text-white tracking-tight">Hub Overview</h1>
             <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
               REAL-TIME
             </span>
           </div>
           <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-            Real-time telemetry and calculated activity metrics for published applications across Delighty Hub.
+            Real-time metrics and activity across published applications.
           </p>
         </div>
 
         <span className="text-xs font-medium text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-3 py-1.5 rounded-xl flex items-center gap-1.5 self-start sm:self-auto">
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Live Telemetry Active</span>
+          <span>Live</span>
         </span>
       </div>
 
@@ -69,38 +69,38 @@ export const DashboardView: React.FC = () => {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div className="p-5 rounded-2xl bg-[#141720] border border-zinc-800/80 space-y-2">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Catalog Apps</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">Total Apps</span>
             <Layers className="w-4 h-4 text-blue-400" />
           </div>
           <span className="text-2xl font-extrabold text-white">{hubStats.totalApps}</span>
-          <p className="text-[11px] text-zinc-500">Published applications</p>
+          <p className="text-[11px] text-zinc-500">Catalog total</p>
         </div>
 
         <div className="p-5 rounded-2xl bg-[#141720] border border-zinc-800/80 space-y-2">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Total Accesses</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">Total Launches</span>
             <Users className="w-4 h-4 text-cyan-400" />
           </div>
           <span className="text-2xl font-extrabold text-cyan-300">{hubStats.totalAccesses.toLocaleString()}</span>
-          <p className="text-[11px] text-zinc-500">Calculated launch events</p>
+          <p className="text-[11px] text-zinc-500">App launches</p>
         </div>
 
         <div className="p-5 rounded-2xl bg-[#141720] border border-zinc-800/80 space-y-2">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Avg Catalog Score</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">Avg Rating</span>
             <Star className="w-4 h-4 text-amber-400" />
           </div>
           <span className="text-2xl font-extrabold text-amber-400">{hubStats.avgRating} <span className="text-xs text-zinc-500">/ 5.0</span></span>
-          <p className="text-[11px] text-zinc-500">From real user reviews</p>
+          <p className="text-[11px] text-zinc-500">User score</p>
         </div>
 
         <div className="p-5 rounded-2xl bg-[#141720] border border-zinc-800/80 space-y-2">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Total Reviews</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">Reviews</span>
             <MessageSquare className="w-4 h-4 text-indigo-400" />
           </div>
           <span className="text-2xl font-extrabold text-indigo-300">{hubStats.totalFeedbacks}</span>
-          <p className="text-[11px] text-zinc-500">Submitted reviews & feedback</p>
+          <p className="text-[11px] text-zinc-500">Total feedback</p>
         </div>
       </div>
 
@@ -109,14 +109,14 @@ export const DashboardView: React.FC = () => {
         <div className="flex items-center justify-between">
           <h2 className="text-base font-bold text-white flex items-center gap-2">
             <Clock className="w-5 h-5 text-cyan-400" />
-            <span>Real-Time Activity Feed</span>
+            <span>Recent Activity</span>
           </h2>
-          <span className="text-xs font-mono text-zinc-400">{activityLogs.length} events logged</span>
+          <span className="text-xs font-mono text-zinc-400">{activityLogs.length} events</span>
         </div>
 
         <div className="space-y-2.5">
           {activityLogs.length === 0 ? (
-            <p className="text-xs text-zinc-500 italic p-4 text-center">No activity recorded yet. Launch apps or submit reviews to see real-time updates.</p>
+            <p className="text-xs text-zinc-500 italic p-4 text-center">No activity recorded yet.</p>
           ) : (
             activityLogs.slice(0, 6).map((log) => (
               <div key={log.id} className="p-3 rounded-xl bg-zinc-900/60 border border-zinc-800/80 flex items-center justify-between">
@@ -151,10 +151,10 @@ export const DashboardView: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="p-6 rounded-3xl bg-[#14171f] border border-zinc-800 space-y-4">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Developer Access Token</span>
+            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Developer API Token</span>
             <Key className="w-5 h-5 text-indigo-400" />
           </div>
-          <p className="text-xs text-zinc-400">Personal bearer token for API access and automated launcher suites.</p>
+          <p className="text-xs text-zinc-400">Bearer token for API access.</p>
           <div className="flex items-center gap-2 p-2 bg-[#0c0e12] rounded-xl border border-zinc-800">
             <code className="text-[11px] font-mono text-zinc-300 truncate flex-1">{mockApiKey}</code>
             <button
@@ -170,10 +170,10 @@ export const DashboardView: React.FC = () => {
         <div className="p-6 rounded-3xl bg-[#14171f] border border-zinc-800 space-y-3">
           <h2 className="text-sm font-bold text-white flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-blue-400" />
-            <span>Delighty Hub Publishing Guidelines</span>
+            <span>Publishing Guidelines</span>
           </h2>
           <p className="text-xs text-zinc-400 leading-relaxed">
-            All submitted applications must adhere to web standards, responsive design guidelines, and HTTPS deployment requirements before public catalog listing.
+            Apps must be responsive, performant, and hosted securely on HTTPS.
           </p>
         </div>
       </div>

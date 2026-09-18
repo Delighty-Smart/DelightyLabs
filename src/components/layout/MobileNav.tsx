@@ -122,7 +122,7 @@ export const MobileNav: React.FC = () => {
                     }`}
                   >
                     <Compass className="w-4 h-4 text-blue-400" />
-                    <span>App Directory</span>
+                    <span>Explore</span>
                   </button>
                   <button
                     onClick={() => handleNavClick('history')}
@@ -131,13 +131,13 @@ export const MobileNav: React.FC = () => {
                     }`}
                   >
                     <Clock className="w-4 h-4 text-zinc-400" />
-                    <span>Recently Opened</span>
+                    <span>Recent</span>
                   </button>
                 </div>
               </div>
 
               <div>
-                <p className="text-[11px] font-semibold text-zinc-300 uppercase tracking-wider px-2 mb-2">My Workspace</p>
+                <p className="text-[11px] font-semibold text-zinc-300 uppercase tracking-wider px-2 mb-2">Workspace</p>
                 <div className="space-y-1">
                   <button
                     onClick={() => handleNavClick('bookmarked')}
@@ -147,7 +147,7 @@ export const MobileNav: React.FC = () => {
                   >
                     <div className="flex items-center gap-3">
                       <Bookmark className="w-4 h-4 text-cyan-400" />
-                      <span>Saved Apps</span>
+                      <span>Saved</span>
                     </div>
                     {user?.bookmarkedAppIds.length ? (
                       <span className="text-xs px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-300">
@@ -162,7 +162,7 @@ export const MobileNav: React.FC = () => {
                     }`}
                   >
                     <MessageSquareCode className="w-4 h-4 text-emerald-400" />
-                    <span>Reviews & Feedback</span>
+                    <span>Feedback</span>
                   </button>
                 </div>
               </div>
@@ -177,7 +177,7 @@ export const MobileNav: React.FC = () => {
                     }`}
                   >
                     <SlidersHorizontal className="w-4 h-4 text-cyan-400" />
-                    <span>Admin Portal</span>
+                    <span>Admin</span>
                   </button>
                   <button
                     onClick={() => handleNavClick('dashboard')}
@@ -186,7 +186,7 @@ export const MobileNav: React.FC = () => {
                     }`}
                   >
                     <BarChart3 className="w-4 h-4 text-indigo-400" />
-                    <span>Hub Stats & Overview</span>
+                    <span>Overview</span>
                   </button>
                   <button
                     onClick={() => handleNavClick('docs')}
@@ -194,7 +194,7 @@ export const MobileNav: React.FC = () => {
                   >
                     <div className="flex items-center gap-3">
                       <FileText className="w-4 h-4 text-purple-400" />
-                      <span>Hub Guidelines</span>
+                      <span>Guidelines</span>
                     </div>
                     <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
                   </button>
@@ -231,7 +231,7 @@ export const MobileNav: React.FC = () => {
                   className="w-full py-2.5 px-3 rounded-xl text-xs font-semibold bg-blue-600 text-white flex items-center justify-center gap-1.5"
                 >
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Sign In / Join Beta</span>
+                  <span>Sign In</span>
                 </button>
               )}
             </div>

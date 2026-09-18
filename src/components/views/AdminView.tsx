@@ -197,10 +197,10 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
-                Published Apps Directory Admin
+                App Admin
               </h1>
               <p className="text-xs text-zinc-400 mt-0.5">
-                Manage metadata, published statuses, categories, launcher links, and community reviews across Delighty Hub.
+                Manage metadata, status, categories, and reviews.
               </p>
             </div>
           </div>
@@ -211,7 +211,7 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
           <button
             onClick={handleExportJSON}
             className="px-3.5 py-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-200 text-xs font-medium flex items-center gap-1.5 transition-colors border border-zinc-700/50"
-            title="Export apps catalog as JSON"
+            title="Export catalog JSON"
           >
             <Download className="w-4 h-4 text-cyan-400" />
             <span>Export JSON</span>
@@ -220,7 +220,7 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
           <button
             onClick={() => setImportModalOpen(true)}
             className="px-3.5 py-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-200 text-xs font-medium flex items-center gap-1.5 transition-colors border border-zinc-700/50"
-            title="Import apps catalog from JSON"
+            title="Import catalog JSON"
           >
             <Upload className="w-4 h-4 text-indigo-400" />
             <span>Import JSON</span>
@@ -228,12 +228,12 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
 
           <button
             onClick={() => {
-              if (confirm('Are you sure you want to reset all apps to the default seed dataset? Custom apps and edits will be reverted.')) {
+              if (confirm('Reset apps to default dataset?')) {
                 resetAppsToDefault();
               }
             }}
             className="p-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-amber-400 transition-colors border border-zinc-700/50"
-            title="Reset to default mock dataset"
+            title="Reset to default"
           >
             <RotateCcw className="w-4 h-4" />
           </button>
@@ -243,7 +243,7 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
             className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-glow-sm flex items-center gap-1.5 transition-all active:scale-95"
           >
             <Plus className="w-4 h-4" />
-            <span>Publish New App</span>
+            <span>New App</span>
           </button>
         </div>
       </div>
@@ -256,12 +256,12 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
             <Layers className="w-4 h-4 text-blue-400" />
           </div>
           <p className="text-2xl font-bold text-white tracking-tight">{stats.totalApps}</p>
-          <span className="text-[10px] text-zinc-500">In Directory Catalog</span>
+          <span className="text-[10px] text-zinc-500">In Catalog</span>
         </div>
 
         <div className="p-4 rounded-2xl bg-[#141720] border border-[#222733] space-y-1">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-medium">Active / Trending</span>
+            <span className="text-xs font-medium">Active</span>
             <Flame className="w-4 h-4 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-amber-400 tracking-tight">{stats.activeApps}</p>
@@ -270,16 +270,16 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
 
         <div className="p-4 rounded-2xl bg-[#141720] border border-[#222733] space-y-1">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-medium">Total Users / Views</span>
+            <span className="text-xs font-medium">Launches</span>
             <Users className="w-4 h-4 text-cyan-400" />
           </div>
           <p className="text-2xl font-bold text-cyan-300 tracking-tight">{stats.totalTesters.toLocaleString()}</p>
-          <span className="text-[10px] text-zinc-500">Active Accesses</span>
+          <span className="text-[10px] text-zinc-500">Total Views</span>
         </div>
 
         <div className="p-4 rounded-2xl bg-[#141720] border border-[#222733] space-y-1">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-medium">Catalog Rating</span>
+            <span className="text-xs font-medium">Rating</span>
             <Star className="w-4 h-4 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-emerald-400 tracking-tight">{stats.avgRating} <span className="text-xs text-zinc-500">/ 5.0</span></p>
@@ -288,11 +288,11 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
 
         <div className="p-4 rounded-2xl bg-[#141720] border border-[#222733] space-y-1 col-span-2 sm:col-span-1">
           <div className="flex items-center justify-between text-zinc-400">
-            <span className="text-xs font-medium">Feedback Log</span>
+            <span className="text-xs font-medium">Feedback</span>
             <MessageSquare className="w-4 h-4 text-indigo-400" />
           </div>
           <p className="text-2xl font-bold text-indigo-300 tracking-tight">{stats.totalFeedbacks}</p>
-          <span className="text-[10px] text-zinc-500">Community Reports</span>
+          <span className="text-[10px] text-zinc-500">User Reports</span>
         </div>
       </div>
 
@@ -307,7 +307,7 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
                 : 'bg-zinc-800/60 text-zinc-400 hover:text-white'
             }`}
           >
-            Published Apps Catalog ({filteredApps.length})
+            Catalog ({filteredApps.length})
           </button>
 
           <button
@@ -333,7 +333,7 @@ export const AdminView: React.FC<AdminViewProps> = ({ onSelectApp }) => {
             }`}
           >
             <Clock className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Real-Time Activity Stream</span>
+            <span>Activity Stream</span>
             <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
               {activityLogs.length}
             </span>

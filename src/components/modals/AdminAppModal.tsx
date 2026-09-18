@@ -65,6 +65,8 @@ export const AdminAppModal: React.FC<AdminAppModalProps> = ({
   const [title, setTitle] = useState(app?.title || '');
   const [tagline, setTagline] = useState(app?.tagline || '');
   const [description, setDescription] = useState(app?.description || '');
+  const [painPoint, setPainPoint] = useState(app?.painPoint || '');
+  const [immediateValue, setImmediateValue] = useState<string[]>(app?.immediateValue || []);
   const [category, setCategory] = useState<AppCategory>(app?.category || 'gemini');
   const [section, setSection] = useState<BetaApp['section']>(app?.section || 'gemini-flash');
   const [status, setStatus] = useState<BetaApp['status']>(app?.status || 'active');
@@ -184,6 +186,8 @@ export const AdminAppModal: React.FC<AdminAppModalProps> = ({
     title: title || 'Untitled Published App',
     tagline: tagline || 'No tagline provided',
     description: description || 'No description provided',
+    painPoint: painPoint || description || 'No pain point specified',
+    immediateValue: immediateValue.length ? immediateValue : (features.length ? features : ['Immediate interactive testing']),
     category,
     section,
     tags: tags.length ? tags : ['Beta'],
@@ -383,6 +387,17 @@ export const AdminAppModal: React.FC<AdminAppModalProps> = ({
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Detailed description of features and usage..."
                   className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-amber-400 mb-1">Pain Point Solved (Core Problem)</label>
+                <textarea
+                  rows={2}
+                  value={painPoint}
+                  onChange={(e) => setPainPoint(e.target.value)}
+                  placeholder="The primary pain point or frustration this application eliminates for users..."
+                  className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-amber-500/30 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
                 />
               </div>
 
